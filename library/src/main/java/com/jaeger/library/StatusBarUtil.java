@@ -701,9 +701,15 @@ public class StatusBarUtil {
      * @return 状态栏高度
      */
     private static int getStatusBarHeight(Context context) {
+        if (context==null)
+            return 0;
+        int result = 0;
         // 获得状态栏高度
         int resourceId = context.getResources().getIdentifier("status_bar_height", "dimen", "android");
-        return context.getResources().getDimensionPixelSize(resourceId);
+        if (resourceId>0) {
+            result =  context.getResources().getDimensionPixelSize(resourceId);
+        }
+        return result;
     }
 
     /**
